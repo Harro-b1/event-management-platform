@@ -3,11 +3,13 @@ import { PrismaClient, Role } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
+
     const director = await prisma.user.create({
-        data: { name: "Demo Director", email: "director@example.com", role: Role.DIRECTOR },
+        data: { name: "Demo Director", email: "director@example.com", passwordHash: "secretPass", role: Role.DIRECTOR },
     });
+
     await prisma.user.create({
-        data: { name: "Demo Member", email: "member@example.com" },
+        data: { name: "Demo Member", email: "member@example.com", passwordHash: "secretPass" },
     });
 
     await prisma.equipment.createMany({

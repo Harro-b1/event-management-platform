@@ -9,6 +9,7 @@ CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
+    "passwordHash" TEXT NOT NULL,
     "role" "Role" NOT NULL DEFAULT 'MEMBER',
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
@@ -21,9 +22,6 @@ CREATE TABLE "Event" (
     "date" TIMESTAMP(3) NOT NULL,
     "venue" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "chasingMinutes" INTEGER,
-    "duplicateTasks" INTEGER,
-    "equipmentSurprises" INTEGER,
 
     CONSTRAINT "Event_pkey" PRIMARY KEY ("id")
 );

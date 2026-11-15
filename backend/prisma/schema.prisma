@@ -23,6 +23,7 @@ model User {
   id    Int    @id @default(autoincrement())
   name  String
   email String @unique
+  passwordHash String 
   role  Role   @default(MEMBER)
   tasks Task[]
 }
@@ -33,11 +34,6 @@ model Event {
   date      DateTime
   venue     String
   createdAt DateTime @default(now())
-
-  // Close-out fields (metrics M1-M3)
-  chasingMinutes     Int?
-  duplicateTasks     Int?
-  equipmentSurprises Int?
 
   tasks       Task[]
   allocations EventEquipment[]
